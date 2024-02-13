@@ -26,20 +26,24 @@ public class Calculator {
                 switch (choice) {
                     case 1:
                         double numSquareRoot = readDoubleInput("Enter a number: ");
-                        squareRoot(numSquareRoot);
+                        double squareRootResult = squareRoot(numSquareRoot);
+                        logger.info("Result: " + squareRootResult);
                         break;
                     case 2:
-                        int numFactorial = readIntInput("Enter a number: ");
-                        factorial(numFactorial);
+                        int numFactorial = readIntInput();
+                        long factorialResult = factorial(numFactorial);
+                        logger.info("Result: " + factorialResult);
                         break;
                     case 3:
                         double numLog = readDoubleInput("Enter a number: ");
-                        naturalLogarithm(numLog);
+                        double logResult = naturalLogarithm(numLog);
+                        logger.info("Result: " + logResult);
                         break;
                     case 4:
                         double base = readDoubleInput("Enter the base: ");
                         double exponent = readDoubleInput("Enter the exponent: ");
-                        powerFunction(base, exponent);
+                        double powerResult = powerFunction(base, exponent);
+                        logger.info("Result: " + powerResult);
                         break;
                     case 0:
                         System.out.println("Exiting the calculator!");
@@ -73,24 +77,23 @@ public class Calculator {
     }
 
     // Square Root
-    private static void squareRoot(double num) {
+    public static double squareRoot(double num) {
         if (num < 0) {
             // Log an error for invalid input
             logger.error("Square root is undefined for negative numbers!");
-            return;
+            return Double.NaN; // Return NaN for undefined result
         }
 
         // Calculate and log the square root
-        double result = Math.sqrt(num);
-        logger.info("Square root of " + num + " is " + result);
+        return Math.sqrt(num);
     }
 
     // Factorial
-    private static void factorial(int num) {
+    public static long factorial(int num) {
         if (num < 0) {
             // Log an error for invalid input
             logger.error("Factorial is undefined for negative numbers!");
-            return;
+            return -1; // Return -1 for undefined result
         }
 
         // Calculate and log the factorial
@@ -98,27 +101,25 @@ public class Calculator {
         for (int i = 1; i <= num; i++) {
             result *= i;
         }
-        logger.info("Factorial of " + num + " is " + result);
+        return result;
     }
 
     // Natural Logarithm
-    private static void naturalLogarithm(double num) {
+    public static double naturalLogarithm(double num) {
         if (num <= 0) {
             // Log an error for invalid input
             logger.error("Natural logarithm is undefined for non-positive numbers!");
-            return;
+            return Double.NaN; // Return NaN for undefined result
         }
 
         // Calculate and log the natural logarithm
-        double result = Math.log(num);
-        logger.info("Natural logarithm (base е) of " + num + " is " + result);
+        return Math.log(num);
     }
 
-    // Power Function
-    private static void powerFunction(double base, double exponent) {
+    // Power function
+    public static double powerFunction(double base, double exponent) {
         // Calculate and log the power function result
-        double result = Math.pow(base, exponent);
-        logger.info(base + " raised to the power of " + exponent + " is " + result);
+        return Math.pow(base, exponent);
     }
 
     // Read a double input from the user
@@ -135,8 +136,8 @@ public class Calculator {
     }
 
     // Read an integer input from the user
-    private static int readIntInput(String message) {
-        System.out.print(message);
+    private static int readIntInput() {
+        System.out.print("Enter a number: ");
         while (true) {
             try {
                 return scanner.nextInt();

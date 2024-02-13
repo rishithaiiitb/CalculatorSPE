@@ -25,16 +25,21 @@ public class Calculator {
                 // Perform action based on user choice
                 switch (choice) {
                     case 1:
-                        squareRoot();
+                        double numSquareRoot = readDoubleInput("Enter a number: ");
+                        squareRoot(numSquareRoot);
                         break;
                     case 2:
-                        factorial();
+                        int numFactorial = readIntInput("Enter a number: ");
+                        factorial(numFactorial);
                         break;
                     case 3:
-                        naturalLogarithm();
+                        double numLog = readDoubleInput("Enter a number: ");
+                        naturalLogarithm(numLog);
                         break;
                     case 4:
-                        powerFunction();
+                        double base = readDoubleInput("Enter the base: ");
+                        double exponent = readDoubleInput("Enter the exponent: ");
+                        powerFunction(base, exponent);
                         break;
                     case 0:
                         System.out.println("Exiting the calculator!");
@@ -67,111 +72,78 @@ public class Calculator {
         System.out.println("0. Exit");
     }
 
-    // Calculate square root
-    private static void squareRoot() {
-        System.out.print("Enter a number: ");
-
-        try {
-            // Read user input for the number
-            double num = scanner.nextDouble();
-
-            if (num < 0) {
-                // Log an error for invalid input
-                logger.error("Square root is undefined for negative numbers!");
-                return;
-            }
-
-            // Calculate and log the square root
-            double result = Math.sqrt(num);
-            logger.info("Square root of " + num + " is " + result);
-
-        } catch (InputMismatchException e) {
-            // Log an error for invalid input (non-numeric)
-            logger.error("Invalid input! Please enter a valid number.");
-            scanner.nextLine(); // consume the invalid input
+    // Square Root
+    private static void squareRoot(double num) {
+        if (num < 0) {
+            // Log an error for invalid input
+            logger.error("Square root is undefined for negative numbers!");
+            return;
         }
+
+        // Calculate and log the square root
+        double result = Math.sqrt(num);
+        logger.info("Square root of " + num + " is " + result);
     }
 
-    // Calculate factorial
-    private static void factorial() {
-        System.out.print("Enter a number: ");
-
-        try {
-            // Read user input for the number
-            int num = scanner.nextInt();
-
-            if (num < 0) {
-                // Log an error for invalid input
-                logger.error("Factorial is undefined for negative numbers!");
-                return;
-            }
-
-            // Calculate and log the factorial
-            long result = 1;
-            for (int i = 1; i <= num; i++) {
-                result *= i;
-            }
-            logger.info("Factorial of " + num + " is " + result);
-
-        } catch (InputMismatchException e) {
-            // Log an error for invalid input (non-integer)
-            logger.error("Invalid input! Please enter a valid integer.");
-            scanner.nextLine(); // consume the invalid input
+    // Factorial
+    private static void factorial(int num) {
+        if (num < 0) {
+            // Log an error for invalid input
+            logger.error("Factorial is undefined for negative numbers!");
+            return;
         }
+
+        // Calculate and log the factorial
+        long result = 1;
+        for (int i = 1; i <= num; i++) {
+            result *= i;
+        }
+        logger.info("Factorial of " + num + " is " + result);
     }
 
-    // Calculate natural logarithm
-    private static void naturalLogarithm() {
-        System.out.print("Enter a number: ");
-
-        try {
-            // Read user input for the number
-            double num = scanner.nextDouble();
-
-            if (num <= 0) {
-                // Log an error for invalid input
-                logger.error("Natural logarithm is undefined for non-positive numbers!");
-                return;
-            }
-
-            // Calculate and log the natural logarithm
-            double result = Math.log(num);
-            logger.info("Natural logarithm (base е) of " + num + " is " + result);
-
-        } catch (InputMismatchException e) {
-            // Log an error for invalid input (non-numeric)
-            logger.error("Invalid input! Please enter a valid number.");
-            scanner.nextLine(); // consume the invalid input
+    // Natural Logarithm
+    private static void naturalLogarithm(double num) {
+        if (num <= 0) {
+            // Log an error for invalid input
+            logger.error("Natural logarithm is undefined for non-positive numbers!");
+            return;
         }
+
+        // Calculate and log the natural logarithm
+        double result = Math.log(num);
+        logger.info("Natural logarithm (base е) of " + num + " is " + result);
     }
 
-    // Calculate power function
-    private static void powerFunction() {
-        System.out.print("Enter the base: ");
+    // Power Function
+    private static void powerFunction(double base, double exponent) {
+        // Calculate and log the power function result
+        double result = Math.pow(base, exponent);
+        logger.info(base + " raised to the power of " + exponent + " is " + result);
+    }
 
-        try {
-            // Read user input for the base
-            double base = scanner.nextDouble();
-
-            System.out.print("Enter the exponent: ");
-
+    // Read a double input from the user
+    private static double readDoubleInput(String message) {
+        System.out.print(message);
+        while (true) {
             try {
-                // Read user input for the exponent
-                double exponent = scanner.nextDouble();
-
-                // Calculate and log the power function result
-                double result = Math.pow(base, exponent);
-                logger.info(base + " raised to the power of " + exponent + " is " + result);
-
+                return scanner.nextDouble();
             } catch (InputMismatchException e) {
-                // Log an error for invalid input (non-numeric exponent)
-                logger.error("Invalid input! Please enter a valid number for the exponent.");
+                logger.error("Invalid input! Please enter a valid number.");
                 scanner.nextLine(); // consume the invalid input
             }
-        } catch (InputMismatchException e) {
-            // Log an error for invalid input (non-numeric base)
-            logger.error("Invalid input! Please enter a valid number for the base.");
-            scanner.nextLine(); // consume the invalid input
+        }
+    }
+
+    // Read an integer input from the user
+    private static int readIntInput(String message) {
+        System.out.print(message);
+        while (true) {
+            try {
+                return scanner.nextInt();
+            } catch (InputMismatchException e) {
+                logger.error("Invalid input! Please enter a valid integer.");
+                scanner.nextLine(); // consume the invalid input
+            }
         }
     }
 }

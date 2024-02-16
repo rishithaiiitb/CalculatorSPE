@@ -1,5 +1,4 @@
 FROM openjdk:17
-ADD ./target/original-CalculatorMP-1.0-SNAPSHOT.jar ./
+ADD ./target/CalculatorMP-1.0-SNAPSHOT-shaded.jar ./
 WORKDIR ./
-CMD ["java", "-jar", "original-CalculatorMP-1.0-SNAPSHOT.jar"]
-
+CMD ["java", "-jar", "CalculatorMP-1.0-SNAPSHOT-shaded.jar"]

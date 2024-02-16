@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('', 'DockerHubCred') {
-                    sh 'docker tag calculator rishithaiiitb/calculatormp:latest'
+                    sh 'docker tag calculatormp rishithaiiitb/calculatormp:latest'
                     sh 'docker push rishithaiiitb/calculatormp'
                     }
                  }

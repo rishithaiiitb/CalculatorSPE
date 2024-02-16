@@ -1,5 +1,5 @@
 FROM openjdk:17
-ADD ./target/CalculatorMP-1.0-SNAPSHOT-jar-with-dependencies.jar ./
+ADD ./target/original-CalculatorMP-1.0-SNAPSHOT.jar ./
 WORKDIR ./
-CMD ["java", "-jar", "CalculatorMP-1.0-SNAPSHOT-jar-with-dependencies.jar"]
+CMD ["java", "-jar", "original-CalculatorMP-1.0-SNAPSHOT.jar"]
 

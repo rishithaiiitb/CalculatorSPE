@@ -1,0 +1,11 @@
+14:28:51.493 [main] INFO  org.spe.Calculator : Square root of 5.0 is : 2.23606797749979
+14:28:55.171 [main] INFO  org.spe.Calculator : Factorial of 7 is : 5040
+14:29:00.697 [main] INFO  org.spe.Calculator : Natural Logarithm of 10.0 is : 2.302585092994046
+14:29:07.907 [main] INFO  org.spe.Calculator : 8.0 raised to the 2.0 is : 64.0
+14:29:13.294 [main] ERROR org.spe.Calculator : Square root is undefined for negative numbers!
+14:29:13.295 [main] INFO  org.spe.Calculator : Square root of -5.0 is : NaN
+14:29:19.491 [main] ERROR org.spe.Calculator : Factorial is undefined for negative numbers!
+14:29:19.491 [main] INFO  org.spe.Calculator : Factorial of -9 is : -1
+14:29:23.390 [main] ERROR org.spe.Calculator : Natural logarithm is undefined for non-positive numbers!
+14:29:23.390 [main] INFO  org.spe.Calculator : Natural Logarithm of 0.0 is : NaN
+14:29:28.139 [main] INFO  org.spe.Calculator : 0.0 raised to the 1.0 is : 0.0

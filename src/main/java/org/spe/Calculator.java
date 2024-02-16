@@ -27,23 +27,23 @@ public class Calculator {
                     case 1:
                         double numSquareRoot = readDoubleInput("Enter a number: ");
                         double squareRootResult = squareRoot(numSquareRoot);
-                        logger.info("Result: " + squareRootResult);
+                        logger.info("Square root of " + numSquareRoot + " is : " + squareRootResult);
                         break;
                     case 2:
                         int numFactorial = readIntInput();
                         long factorialResult = factorial(numFactorial);
-                        logger.info("Result: " + factorialResult);
+                        logger.info("Factorial of " + numFactorial + " is : " + factorialResult);
                         break;
                     case 3:
                         double numLog = readDoubleInput("Enter a number: ");
                         double logResult = naturalLogarithm(numLog);
-                        logger.info("Result: " + logResult);
+                        logger.info("Natural Logarithm of " + numLog + " is : " + logResult);
                         break;
                     case 4:
                         double base = readDoubleInput("Enter the base: ");
                         double exponent = readDoubleInput("Enter the exponent: ");
                         double powerResult = powerFunction(base, exponent);
-                        logger.info("Result: " + powerResult);
+                        logger.info(base + " raised to the " + exponent + " is : " + powerResult);
                         break;
                     case 0:
                         System.out.println("Exiting the calculator!");

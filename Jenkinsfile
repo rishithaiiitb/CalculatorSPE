@@ -7,6 +7,14 @@ pipeline {
     }
 
     stages {
+
+        stage('Cleanup Docker Image') {
+            steps {
+                script{  
+                    sh 'docker rm -f calculatormp'
+                }
+            }
+
         stage('Github Checkout') {
             steps {
                 script {
@@ -17,6 +25,7 @@ pipeline {
 
         stage('Build Maven Jar'){
             steps{
+                    sh 'mvn clean package'
                     sh 'mvn clean install'
             }
         }
@@ -57,7 +66,7 @@ pipeline {
         always {
             emailext(
                 subject: "Pipeline Status: ${currentBuild.result}",
-                body: "Build Status: ${currentBuild.result}\n\nCheck the Jenkins console for details.",
+                body: ""Build URL: ${BUILD_URL}",
                 to: "rishichinnu27@gmail.com",
                 from: "smtp.gmail.com",
             )

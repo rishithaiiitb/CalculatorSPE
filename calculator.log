@@ -9,3 +9,13 @@
 14:29:23.390 [main] ERROR org.spe.Calculator : Natural logarithm is undefined for non-positive numbers!
 14:29:23.390 [main] INFO  org.spe.Calculator : Natural Logarithm of 0.0 is : NaN
 14:29:28.139 [main] INFO  org.spe.Calculator : 0.0 raised to the 1.0 is : 0.0
+11:37:16.206 [main] INFO  org.spe.Calculator : Square root of 5.0 is : 2.23606797749979
+11:37:20.981 [main] INFO  org.spe.Calculator : Factorial of 6 is : 720
+11:37:24.813 [main] INFO  org.spe.Calculator : Natural Logarithm of 10.0 is : 2.302585092994046
+11:37:31.096 [main] INFO  org.spe.Calculator : 3.0 raised to the 5.0 is : 243.0
+11:37:36.700 [main] ERROR org.spe.Calculator : Square root is undefined for negative numbers!
+11:37:36.700 [main] INFO  org.spe.Calculator : Square root of -3.0 is : NaN
+11:37:41.566 [main] ERROR org.spe.Calculator : Factorial is undefined for negative numbers!
+11:37:41.567 [main] INFO  org.spe.Calculator : Factorial of -9 is : -1
+11:37:45.774 [main] ERROR org.spe.Calculator : Natural logarithm is undefined for non-positive numbers!
+11:37:45.774 [main] INFO  org.spe.Calculator : Natural Logarithm of 0.0 is : NaN

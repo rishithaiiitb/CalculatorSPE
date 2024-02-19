@@ -66,7 +66,7 @@ pipeline {
         always {
             emailext(
                 subject: "Pipeline Status: ${currentBuild.result}",
-                body: ""Build URL: ${BUILD_URL}",
+                body: "Build URL: ${BUILD_URL}",
                 to: "rishichinnu27@gmail.com",
                 from: "smtp.gmail.com",
             )

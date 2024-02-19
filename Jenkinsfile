@@ -14,6 +14,7 @@ pipeline {
                     sh 'docker rm -f calculatormp'
                 }
             }
+        }
 
         stage('Github Checkout') {
             steps {

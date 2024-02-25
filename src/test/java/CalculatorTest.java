@@ -12,7 +12,7 @@ public class CalculatorTest {
 
     @Test
     public void squareRootEquals() {
-        assertEquals(9.0, calculator.squareRoot(81), delta);
+        assertEquals(8.0, calculator.squareRoot(81), delta);
         assertEquals(1.41421356237, calculator.squareRoot(2), delta);
     }
 
